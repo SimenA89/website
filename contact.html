@@ -1,0 +1,205 @@
+<html><head><base href="https://simenaronsen.ai/projects.html/about.html/index.html/contact.html">
+<title>Contact Simen Fredheim Aronsen - AI Developer</title>
+<style>
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+        padding: 20px;
+    }
+    header {
+        background: #2c3e50;
+        color: white;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: #e74c3c 3px solid;
+    }
+    header a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+    header .highlight, header .current a {
+        color: #e74c3c;
+        font-weight: bold;
+    }
+    header a:hover {
+        color: #bdc3c7;
+        transition: 0.3s;
+    }
+    nav {
+        float: right;
+        margin-top: -50px;
+    }
+    nav ul {
+        padding: 0;
+        list-style: none;
+    }
+    nav li {
+        display: inline;
+        padding: 0 20px;
+    }
+    #contact {
+        background: #ffffff;
+        padding: 40px 0;
+    }
+    .contact-form {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    .contact-form h3 {
+        color: #e74c3c;
+    }
+    .contact-form label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .contact-form textarea {
+        height: 150px;
+    }
+    .contact-form button {
+        display: inline-block;
+        background: #e74c3c;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .contact-form button:hover {
+        background: #c0392b;
+    }
+    .contact-info {
+        margin-top: 30px;
+    }
+    .contact-info h3 {
+        color: #2c3e50;
+    }
+    footer {
+        padding: 20px;
+        margin-top: 20px;
+        color: #ffffff;
+        background-color: #e74c3c;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Simen</span> Fredheim Aronsen</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="current"><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-form">
+                <h3>Send Me a Message</h3>
+                <form id="contactForm" action="https://formspree.io/f/xwpenbpe" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>Email: simenaronsen@gmail.com</p>
+                <p>Phone: +47 91197190</p>
+                <p>Location: Bergen, Norway</p>
+                <h3>Connect with Me</h3>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/simen-aronsen-21a106a6/">linkedin.com/in/simen-aronsen-21a106a6</a></p>
+                <p>GitHub: <a href="https://github.com/SimenA89">github.com/SimenA89</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Simen Fredheim Aronsen | AI Developer Portfolio</p>
+    </footer>
+
+ 
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+    
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+    
+            if (!name || !email || !subject || !message) {
+            alert('Please fill in all fields.');
+            return;
+        }
+            
+            console.log('Form submitted!');
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Subject:', subject);
+            console.log('Message:', message);
+    
+            
+
+            // Display a success message
+            alert('Thank you for your message. I will get back to you soon!');
+
+            // Clear the form
+            this.reset();
+        });
+
+        // Add a simple animation to the contact form
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const contactForm = document.querySelector('.contact-form');
+            contactForm.style.opacity = 0;
+            let opacity = 0;
+            const fadeIn = setInterval(() => {
+                if (opacity < 1) {
+                    opacity += 0.1;
+                    contactForm.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeIn);
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
