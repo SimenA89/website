@@ -8,19 +8,35 @@
         background-color: #f4f4f4;
         margin: 0;
         padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
     .container {
-        width: 80%;
+        width: 90%;
+        max-width: 1200px;
         margin: auto;
-        overflow: hidden;
         padding: 20px;
+        flex: 1;
     }
     header {
         background: #2c3e50;
         color: white;
-        padding-top: 30px;
-        min-height: 70px;
+        padding: 20px 0;
         border-bottom: #e74c3c 3px solid;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #branding h1 {
+        margin: 0;
+        font-size: 28px;
+    }
+    header .highlight {
+        color: #e74c3c;
     }
     header a {
         color: #ecf0f1;
@@ -28,65 +44,76 @@
         text-transform: uppercase;
         font-size: 16px;
     }
-
-    nav {
-        float: right;
-        margin-top: -50px;
-    }
     nav ul {
         padding: 0;
         list-style: none;
+        display: flex;
+        flex-wrap: wrap;
     }
     nav li {
-        display: inline;
-        padding: 0 20px;
-    }
-    header .highlight, header .current a {
-        color: #e74c3c;
-        font-weight: bold;
-    }
-    header a:hover {
-        color: #bdc3c7;
-        transition: 0.3s;
+        margin-left: 20px;
     }
     .project {
         background: #fff;
+        border-radius: 5px;
         padding: 20px;
         margin-bottom: 20px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .project:hover {
+        transform: translateY(-5px);
     }
     .project h3 {
         margin-top: 0;
         color: #2c3e50;
+        width: 100%;
     }
     .project-tags {
+        display: flex;
+        flex-wrap: wrap;
         margin-top: 10px;
     }
     .tag {
-        display: inline-block;
         background: #3498db;
         color: #fff;
         padding: 5px 10px;
-        border-radius: 5px;
+        border-radius: 20px;
         font-size: 12px;
         margin-right: 5px;
+        margin-bottom: 5px;
     }
-
     .profile-image {
-        float: right;
-        margin-left: 20px;
-        margin-bottom: 20px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        object-fit: cover; /* eller contain, avhengig av ønsket effekt */
+        object-fit: cover;
+        margin-right: 20px;
+        margin-bottom: 10px;
     }
-
     footer {
         padding: 20px;
-        margin-top: 20px;
         color: #ffffff;
         background-color: #2c3e50;
         text-align: center;
+        font-size: 14px;
+    }
+    @media (max-width: 768px) {
+        header .container {
+            flex-direction: column;
+            text-align: center;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav ul {
+            justify-content: center;
+        }
+        nav li {
+            margin: 5px 10px;
+        }
     }
 </style>
 </head>
