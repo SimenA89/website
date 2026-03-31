@@ -1,11 +1,11 @@
-<html><head><base href="https://simena89.github.io/website/about.html">
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="."><link rel="stylesheet" href="styles.css">
 <title>Simen Fredheim Aronsen - About Me</title>
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
-        color: #333;
-        background-color: #f4f4f4;
+        color: var(--text);
+        background: var(--bg);
         margin: 0;
         padding: 0;
     }
@@ -16,62 +16,76 @@
         padding: 20px;
     }
     header {
-        background: #2c3e50;
-        color: white;
+        background: var(--header-bg);
+        color: var(--header-text);
         padding-top: 30px;
         min-height: 70px;
-        border-bottom: #e8491d 3px solid;
+        border-bottom: var(--accent) 3px solid;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
     }
     header a {
-        color: #ffffff;
+        color: var(--header-link);
         text-decoration: none;
         text-transform: uppercase;
         font-size: 16px;
+        letter-spacing: 0.04em;
     }
 
     nav {
-        float: right;
-        margin-top: -50px;
+        float: none;
+        margin-top: 0;
     }
     nav ul {
         padding: 0;
+        margin: 0;
         list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
     }
     nav li {
-        display: inline;
-        padding: 0 20px;
+        display: block;
+        padding: 0;
     }
 
     header .highlight, header .current a {
-        color: #e8491d;
+        color: var(--accent);
         font-weight: bold;
     }
     header a:hover {
-        color: #bdc3c7;
+        color: var(--accent-hover);
         transition: 0.3s;
     }
     .about-section {
-        background: #fff;
+        background: var(--about-bg);
         padding: 20px;
         margin-bottom: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: var(--about-radius);
+        box-shadow: var(--about-shadow);
+        border: 1px solid var(--about-border);
     }
     .skill {
-        background: #3498db;
-        color: #fff;
+        background: var(--about-skill-bg);
+        color: var(--about-skill-text);
         padding: 5px 10px;
         border-radius: 5px;
         display: inline-block;
         margin-right: 5px;
         margin-bottom: 5px;
         font-size: 0.9em;
+        border: 1px solid var(--about-skill-border);
     }
     footer {
         padding: 20px;
         margin-top: 20px;
-        color: #ffffff;
-        background-color: #2c3e50;
+        color: var(--header-text);
+        background-color: var(--footer-bg);
         text-align: center;
     }
     .profile-image {
@@ -82,9 +96,11 @@
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
         object-fit: cover; /* eller contain, avhengig av ønsket effekt */
     }
+
 </style>
 </head>
 <body>
+    <button id="themeToggle" type="button">Lys modus</button>
     <header>
         <div class="container">
             <div id="branding">
@@ -92,8 +108,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="https://simena89.github.io/website/index.html">Home</a></li>
-                    <li><a href="https://simena89.github.io/website/projects.html">Projects</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
                     <li class="current"><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -165,5 +181,36 @@
     <footer>
         <p>&copy; 2026 Simen Fredheim Aronsen | AI Developer Portfolio</p>
     </footer>
+
+    <script>
+        // Theme toggle (dark/light) + lagrer valg i localStorage
+        (function () {
+            const STORAGE_KEY = 'theme';
+            const body = document.body;
+            const saved = localStorage.getItem(STORAGE_KEY);
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = saved || (prefersDark ? 'dark' : 'light');
+
+            body.setAttribute('data-theme', initialTheme);
+
+            const btn = document.getElementById('themeToggle');
+            if (!btn) return;
+
+            const syncButton = () => {
+                const t = body.getAttribute('data-theme') || 'light';
+                btn.textContent = (t === 'dark') ? 'Lys modus' : 'Mørk modus';
+                btn.setAttribute('aria-label', (t === 'dark') ? 'Bytt til lys modus' : 'Bytt til mørk modus');
+            };
+
+            syncButton();
+            btn.addEventListener('click', () => {
+                const current = body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                body.setAttribute('data-theme', next);
+                localStorage.setItem(STORAGE_KEY, next);
+                syncButton();
+            });
+        })();
+    </script>
 </body>
 </html>

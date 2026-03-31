@@ -1,0 +1,126 @@
+:root{
+  --bg: #f4f4f4;
+  --text: #333;
+
+  --header-bg: #2c3e50;
+  --header-text: #ffffff;
+  --header-link: #ecf0f1;
+
+  --accent: #e74c3c;
+  --accent-hover: #c0392b;
+
+  --hero-bg: linear-gradient(180deg, rgba(244,244,244,0.35), rgba(244,244,244,0.95)), url('https://source.unsplash.com/random/1600x900/?technology,ai') no-repeat center center/cover;
+
+  --skills-bg: #3498db;
+  --skills-border: rgba(0,0,0,0.08);
+  --skill-bg: rgba(52,152,219,0.18);
+  --skill-border: rgba(52,152,219,0.35);
+  --card-text: #fff;
+
+  --footer-bg: #2c3e50;
+  --focus-outline: rgba(231,76,60,0.9);
+
+  --toggle-bg: rgba(255,255,255,0.85);
+  --toggle-border: rgba(0,0,0,0.10);
+  --toggle-text: #111827;
+
+  --about-bg: #ffffff;
+  --about-radius: 5px;
+  --about-shadow: 0 0 10px rgba(0,0,0,0.1);
+  --about-border: rgba(0,0,0,0.08);
+
+  --about-skill-bg: #3498db;
+  --about-skill-border: transparent;
+  --about-skill-text: #ffffff;
+
+  --project-bg: #ffffff;
+  --project-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  --project-border: rgba(0,0,0,0.08);
+
+  --tag-bg: #3498db;
+  --tag-border: transparent;
+  --tag-text: #ffffff;
+
+  --panel-bg: #f9f9f9;
+  --panel-border: rgba(0,0,0,0.08);
+  --input-bg: #ffffff;
+  --input-border: #ddd;
+  --input-text: #333;
+}
+
+body[data-theme="dark"]{
+  --bg: radial-gradient(1200px 600px at 20% 0%, rgba(255,107,61,0.25), transparent 55%), #0b1220;
+  --text: #e5e7eb;
+
+  --header-bg: #0f172a;
+  --header-text: #ffffff;
+  --header-link: #e5e7eb;
+
+  --accent: #ff6b3d;
+  --accent-hover: #e24d2d;
+
+  --hero-bg: linear-gradient(180deg, rgba(11,18,32,0.35), rgba(11,18,32,0.95)), url('https://source.unsplash.com/random/1600x900/?technology,ai') no-repeat center center/cover;
+
+  --skills-bg: linear-gradient(135deg, rgba(15,42,77,1), rgba(11,18,32,1));
+  --skills-border: rgba(255,255,255,0.08);
+  --skill-bg: rgba(255,255,255,0.06);
+  --skill-border: rgba(255,255,255,0.10);
+  --card-text: #fff;
+
+  --footer-bg: #0f172a;
+  --focus-outline: rgba(255,107,61,0.9);
+
+  --toggle-bg: rgba(15,23,42,0.75);
+  --toggle-border: rgba(255,255,255,0.16);
+  --toggle-text: #e5e7eb;
+
+  --about-bg: rgba(17,24,39,0.92);
+  --about-radius: 14px;
+  --about-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  --about-border: rgba(255,255,255,0.08);
+
+  --about-skill-bg: rgba(255,107,61,0.18);
+  --about-skill-border: rgba(255,107,61,0.25);
+  --about-skill-text: #ffffff;
+
+  --project-bg: rgba(17,24,39,0.92);
+  --project-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  --project-border: rgba(255,255,255,0.08);
+
+  --tag-bg: rgba(255,107,61,0.18);
+  --tag-border: rgba(255,107,61,0.25);
+  --tag-text: #ffffff;
+
+  --panel-bg: rgba(17,24,39,0.92);
+  --panel-border: rgba(255,255,255,0.08);
+  --input-bg: #0b1220;
+  --input-border: rgba(255,255,255,0.14);
+  --input-text: #e5e7eb;
+}
+
+:focus-visible{
+  outline: 2px solid var(--focus-outline);
+  outline-offset: 3px;
+}
+
+#themeToggle{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: var(--toggle-bg);
+  border: 1px solid var(--toggle-border);
+  color: var(--toggle-text);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+#themeToggle:active{
+  transform: translateY(1px);
+}
+

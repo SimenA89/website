@@ -1,11 +1,11 @@
-<html><head><base href="https://simena89.github.io/website/contact.html">
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="."><link rel="stylesheet" href="styles.css">
 <title>Contact Simen Fredheim Aronsen - AI Developer</title>
 <style>
     body {
         font-family: 'Roboto', Arial, sans-serif;
         line-height: 1.6;
-        color: #333;
-        background-color: #f4f4f4;
+        color: var(--text);
+        background: var(--bg);
         margin: 0;
         padding: 0;
     }
@@ -16,49 +16,63 @@
         padding: 20px;
     }
     header {
-        background: #2c3e50;
-        color: white;
+        background: var(--header-bg);
+        color: var(--header-text);
         padding-top: 30px;
         min-height: 70px;
-        border-bottom: #e74c3c 3px solid;
+        border-bottom: var(--accent) 3px solid;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
     }
     header a {
-        color: #ffffff;
+        color: var(--header-link);
         text-decoration: none;
         text-transform: uppercase;
         font-size: 16px;
+        letter-spacing: 0.04em;
     }
     header .highlight, header .current a {
-        color: #e74c3c;
+        color: var(--accent);
         font-weight: bold;
     }
     header a:hover {
-        color: #bdc3c7;
+        color: var(--accent-hover);
         transition: 0.3s;
     }
     nav {
-        float: right;
-        margin-top: -50px;
+        float: none;
+        margin-top: 0;
     }
     nav ul {
         padding: 0;
+        margin: 0;
         list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
     }
     nav li {
-        display: inline;
-        padding: 0 20px;
+        display: block;
+        padding: 0;
     }
     #contact {
-        background: #ffffff;
+        background: transparent;
         padding: 40px 0;
     }
     .contact-form {
-        background: #f9f9f9;
+        background: var(--panel-bg);
         padding: 20px;
-        border-radius: 5px;
+        border-radius: 14px;
+        border: 1px solid var(--panel-border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .contact-form h3 {
-        color: #e74c3c;
+        color: var(--accent);
     }
     .contact-form label {
         display: block;
@@ -69,41 +83,45 @@
     .contact-form textarea {
         width: 100%;
         padding: 10px;
-        border: 1px solid #ddd;
+        border: 1px solid var(--input-border);
         border-radius: 4px;
+        background: var(--input-bg);
+        color: var(--input-text);
     }
     .contact-form textarea {
         height: 150px;
     }
     .contact-form button {
         display: inline-block;
-        background: #e74c3c;
+        background: var(--accent);
         color: #ffffff;
         padding: 10px 20px;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         cursor: pointer;
         margin-top: 10px;
     }
     .contact-form button:hover {
-        background: #c0392b;
+        background: var(--accent-hover);
     }
     .contact-info {
         margin-top: 30px;
     }
     .contact-info h3 {
-        color: #2c3e50;
+        color: var(--text);
     }
     footer {
         padding: 20px;
         margin-top: 20px;
-        color: #ffffff;
-        background-color: #e74c3c;
+        color: var(--header-text);
+        background-color: var(--footer-bg);
         text-align: center;
     }
+
 </style>
 </head>
 <body>
+    <button id="themeToggle" type="button">Lys modus</button>
     <header>
         <div class="container">
             <div id="branding">
@@ -111,9 +129,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="https://simena89.github.io/website/index.html">Home</a></li>
-                    <li><a href="https://simena89.github.io/website/projects.html">Projects</a></li>
-                    <li><a href="https://simena89.github.io/website/about.html">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li class="current"><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -159,6 +177,35 @@
 
  
     <script>
+        // Theme toggle (dark/light) + lagrer valg i localStorage
+        (function () {
+            const STORAGE_KEY = 'theme';
+            const body = document.body;
+            const saved = localStorage.getItem(STORAGE_KEY);
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = saved || (prefersDark ? 'dark' : 'light');
+
+            body.setAttribute('data-theme', initialTheme);
+
+            const btn = document.getElementById('themeToggle');
+            if (!btn) return;
+
+            const syncButton = () => {
+                const t = body.getAttribute('data-theme') || 'light';
+                btn.textContent = (t === 'dark') ? 'Lys modus' : 'Mørk modus';
+                btn.setAttribute('aria-label', (t === 'dark') ? 'Bytt til lys modus' : 'Bytt til mørk modus');
+            };
+
+            syncButton();
+            btn.addEventListener('click', () => {
+                const current = body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                body.setAttribute('data-theme', next);
+                localStorage.setItem(STORAGE_KEY, next);
+                syncButton();
+            });
+        })();
+
         document.getElementById('contactForm').addEventListener('submit', function(event) {
     
             const name = document.getElementById('name').value;
@@ -167,23 +214,10 @@
             const message = document.getElementById('message').value;
     
             if (!name || !email || !subject || !message) {
+            event.preventDefault();
             alert('Please fill in all fields.');
             return;
         }
-            
-            console.log('Form submitted!');
-            console.log('Name:', name);
-            console.log('Email:', email);
-            console.log('Subject:', subject);
-            console.log('Message:', message);
-    
-            
-
-            // Display a success message
-            alert('Thank you for your message. I will get back to you soon!');
-
-            // Clear the form
-            
         });
 
         // Add a simple animation to the contact form

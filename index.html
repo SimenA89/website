@@ -1,13 +1,13 @@
 
 
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><base href=".">
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="."><link rel="stylesheet" href="styles.css">
 <title>Simen Fredheim Aronsen - AI Developer Portfolio</title>
 <style> 
     body {
         font-family: 'Roboto', Arial, sans-serif;
         line-height: 1.6;
-        color: #333;
-        background-color: #f4f4f4;
+        color: var(--text);
+        background: var(--bg);
         margin: 0;
         padding: 0;
     }
@@ -18,48 +18,64 @@
         padding: 20px;
     }
     header {
-        background: #2c3e50;
-        color: white;
+        background: var(--header-bg);
+        color: var(--header-text);
         padding-top: 30px;
         min-height: 70px;
-        border-bottom: #e74c3c 3px solid;
+        border-bottom: var(--accent) 3px solid;
+    }
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
     }
     
     nav {
-        float: right;
-        margin-top: -50px;
+        float: none;
+        margin-top: 0;
     }
     nav ul {
         padding: 0;
+        margin: 0;
         list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
     }
     nav li {
-        display: inline;
-        padding: 0 20px;
+        display: block;
+        padding: 0;
     }
 
     header a {
-        color: #ecf0f1;
+        color: var(--header-link);
         text-decoration: none;
         text-transform: uppercase;
         font-size: 16px;
+        letter-spacing: 0.04em;
     }
     header .highlight, header .current a {
-        color: #e74c3c;
+        color: var(--accent);
         font-weight: bold;
     }
     header a:hover {
-        color: #bdc3c7;
+        color: var(--accent);
         transition: 0.3s;
     }
     #showcase {
-        min-height: 400px;
-        background: url('https://source.unsplash.com/random/1600x900/?technology,ai') no-repeat center center/cover;
+        min-height: 430px;
+        position: relative;
+        background: var(--hero-bg);
         text-align: center;
-        color: #333;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     #showcase .showcase-content {
-        padding-top: 170px;
+        padding: 90px 0 70px;
     }
     #showcase h1 {
         font-size: 55px;
@@ -70,22 +86,24 @@
     }
     .button {
         display: inline-block;
-        color: #fff;
-        background: #e74c3c;
+        color: var(--card-text);
+        background: var(--accent);
         padding: 10px 20px;
         border: none;
         cursor: pointer;
         text-decoration: none;
         font-size: 18px;
         transition: 0.3s;
+        border-radius: 10px;
     }
     .button:hover {
-        background: #c0392b;
+        background: var(--accent-hover);
     }
     #skills {
         padding: 20px;
-        background: #3498db;
-        color: #fff;
+        background: var(--skills-bg);
+        color: var(--card-text);
+        border-top: 1px solid var(--skills-border);
     }
     #skills h2 {
         text-align: center;
@@ -94,21 +112,34 @@
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+        gap: 14px;
     }
     .skill {
         text-align: center;
         padding: 20px;
+        background: var(--skill-bg);
+        border: 1px solid var(--skill-border);
+        border-radius: 14px;
+        will-change: opacity, transform;
     }
     footer {
         padding: 20px;
         margin-top: 20px;
-        color: #ffffff;
-        background-color: #2c3e50;
+        color: var(--header-text);
+        background-color: var(--footer-bg);
         text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        #showcase h1 { font-size: 38px; }
+        #showcase p { font-size: 16px; }
+        .container { width: 95%; }
+        nav ul { justify-content: center; }
     }
 </style>
 </head>
 <body>
+    <button id="themeToggle" type="button">Lys modus</button>
     <header>
         <div class="container">
             <div id="branding">
@@ -137,19 +168,19 @@
         <div class="container">
             <h2>My Skills</h2>
             <div class="skill-container">
-                <div class="skill" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
+                <div class="skill">
                     <h3>Machine Learning</h3>
                     <p>Proficient in various ML algorithms and frameworks</p>
                 </div>
-                <div class="skill" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
+                <div class="skill">
                     <h3>Data Analysis</h3>
                     <p>Expert in extracting insights from complex datasets</p>
                 </div>
-                <div class="skill" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
+                <div class="skill">
                     <h3>Deep Learning</h3>
                     <p>Experienced in neural networks and computer vision</p>
                 </div>
-                <div class="skill" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
+                <div class="skill">
                     <h3>Natural Language Processing</h3>
                     <p>Skilled in text analysis and language models</p>
                 </div>
@@ -177,14 +208,53 @@
     </footer>
 
     <script>
-        // Add a simple animation to the skills section
+        // Theme toggle (dark/light) + lagrer valg i localStorage
+        (function () {
+            const STORAGE_KEY = 'theme';
+            const body = document.body;
+            const saved = localStorage.getItem(STORAGE_KEY);
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = saved || (prefersDark ? 'dark' : 'light');
+
+            body.setAttribute('data-theme', initialTheme);
+
+            const btn = document.getElementById('themeToggle');
+            if (!btn) return;
+
+            const syncButton = () => {
+                const t = body.getAttribute('data-theme') || 'light';
+                btn.textContent = (t === 'dark') ? 'Lys modus' : 'Mørk modus';
+                btn.setAttribute('aria-label', (t === 'dark') ? 'Bytt til lys modus' : 'Bytt til mørk modus');
+            };
+
+            syncButton();
+            btn.addEventListener('click', () => {
+                const current = body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                body.setAttribute('data-theme', next);
+                localStorage.setItem(STORAGE_KEY, next);
+                syncButton();
+            });
+        })();
+
+        // Add a simple animation to the skills section (respects reduced motion)
         document.addEventListener('DOMContentLoaded', (event) => {
+            const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             const skills = document.querySelectorAll('.skill');
+
+            if (prefersReducedMotion) {
+                skills.forEach((skill) => {
+                    skill.style.opacity = '1';
+                    skill.style.transform = 'translateY(0)';
+                });
+                return;
+            }
+
             skills.forEach((skill, index) => {
                 skill.style.opacity = '0';
                 skill.style.transform = 'translateY(20px)';
                 skill.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                
+
                 setTimeout(() => {
                     skill.style.opacity = '1';
                     skill.style.transform = 'translateY(0)';
