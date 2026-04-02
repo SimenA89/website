@@ -16,6 +16,7 @@ Alle viktige endringer i prosjektet vil bli dokumentert i denne filen.
 - **Lenker og navigeringsmeny:** Meny-layouten flyter nå mye bedre med `display: flex` og gap, fremfor den gamle `float: right`-metoden.
 - **Animasjoner:** Oppdaterte "skills"-seksjonen med en innfade-animasjon som også respekterer brukernes OS-innstillinger for redusert bevegelse (`prefers-reduced-motion`).
 - **Headere og Footere:** De har nå fått dynamiske farger avhengig av om brukeren er i lys eller mørk modus.
+- **Kode-opprydding:** Fjernet alle gjenværende inline `<style>`-tags i HTML-filene og samlet all CSS i styles.css for et ryddigere oppsett.
 
 ---
 *Denne loggen kan du fortsette å skrive i for fremtidige endringer.*
