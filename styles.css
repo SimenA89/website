@@ -124,6 +124,10 @@ body[data-theme="dark"]{
   transform: translateY(1px);
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /* --- BASE STYLES --- */
 body {
     font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
@@ -301,7 +305,7 @@ footer {
 /* --- PROJECTS.HTML SPECIFIC --- */
 .projects-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
     gap: 18px;
     align-items: stretch;
     margin-top: 14px;

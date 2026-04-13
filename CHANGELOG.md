@@ -23,5 +23,8 @@ Alle viktige endringer i prosjektet vil bli dokumentert i denne filen.
 - **Headere og Footere:** De har nå fått dynamiske farger avhengig av om brukeren er i lys eller mørk modus.
 - **Kode-opprydding:** Fjernet alle gjenværende inline `<style>`-tags i HTML-filene og samlet all CSS i styles.css for et ryddigere oppsett.
 
+### Feilrettinger (Fixed)
+- **Feil på mobilvisning (Zoom & Kant):** Lagt til global `box-sizing: border-box` og endret `minmax`-grensen for rutenettet til prosjektene. Dette forhindrer at innhold tvinger nettsiden bredere enn mobilskjermen og fjerner innledende zoom/horisontal scroll.
+
 ---
 
