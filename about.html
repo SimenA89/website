@@ -1,29 +1,22 @@
-﻿<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="."><link rel="stylesheet" href="styles.css">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="."><link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
 <title>Simen Fredheim Aronsen - About Me</title>
+<meta name="description" content="Learn more about Simen Fredheim Aronsen, his background in Applied Data Science, and his skills in Machine Learning and Deep Learning.">
+<meta property="og:title" content="Simen Fredheim Aronsen - About Me">
+<meta property="og:description" content="Learn more about Simen Fredheim Aronsen, his background in Applied Data Science, and his skills in Machine Learning and Deep Learning.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/IMG_0593.jpg">
+<meta name="twitter:card" content="summary">
 </head>
 <body>
     <button id="themeToggle" type="button">Lys modus</button>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Simen</span> Fredheim Aronsen</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li class="current"><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <site-header current-page="about"></site-header>
 
-    <div class="container">
+    <main class="container">
         <h2>About Me</h2>
 
         <div class="about-section">
-            <img src="images/IMG_0593.jpg" alt="" width="200" height="200" class="profile-image">
+            <img src="images/IMG_0593.jpg" alt="Profile picture of Simen Fredheim Aronsen" width="200" height="200" class="profile-image" loading="lazy">
             <h3>Background</h3>
             <p>Hello! I'm Simen Fredheim Aronsen, an AI Developer and Data Science enthusiast based in Bergen, Norway. I recently graduated with a degree in Applied Data Science and am passionate about leveraging technology to solve complex problems and drive innovation.</p>
             <p>My journey in the world of AI and data science began during my undergraduate studies, where I discovered my fascination with machine learning algorithms and their potential to transform industries. Since then, I've been on a continuous learning path, exploring various aspects of AI, from neural networks to natural language processing.</p>
@@ -78,41 +71,8 @@
                 <li>Staying up-to-date with the latest trends in AI and technology</li>
             </ul>
         </div>
-    </div>
+    </main>
 
-    <footer>
-        <p>&copy; 2026 Simen Fredheim Aronsen | AI Developer Portfolio</p>
-    </footer>
-
-    <script>
-        // Theme toggle (dark/light) + lagrer valg i localStorage
-        (function () {
-            const STORAGE_KEY = 'theme';
-            const body = document.body;
-            const saved = localStorage.getItem(STORAGE_KEY);
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initialTheme = saved || (prefersDark ? 'dark' : 'light');
-
-            body.setAttribute('data-theme', initialTheme);
-
-            const btn = document.getElementById('themeToggle');
-            if (!btn) return;
-
-            const syncButton = () => {
-                const t = body.getAttribute('data-theme') || 'light';
-                btn.textContent = (t === 'dark') ? 'Lys modus' : 'Mørk modus';
-                btn.setAttribute('aria-label', (t === 'dark') ? 'Bytt til lys modus' : 'Bytt til mørk modus');
-            };
-
-            syncButton();
-            btn.addEventListener('click', () => {
-                const current = body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-                const next = current === 'dark' ? 'light' : 'dark';
-                body.setAttribute('data-theme', next);
-                localStorage.setItem(STORAGE_KEY, next);
-                syncButton();
-            });
-        })();
-    </script>
+    <site-footer></site-footer>
 </body>
 </html>

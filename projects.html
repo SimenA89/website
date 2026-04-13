@@ -1,30 +1,23 @@
-﻿<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="."><link rel="stylesheet" href="styles.css">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="."><link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
 <title>Simen Fredheim Aronsen - Projects</title>
+<meta name="description" content="Explore AI, Machine Learning, and Data Science projects by Simen Fredheim Aronsen.">
+<meta property="og:title" content="Simen Fredheim Aronsen - Projects">
+<meta property="og:description" content="Explore AI, Machine Learning, and Data Science projects by Simen Fredheim Aronsen.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/NeuroNetClassifier.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
     <button id="themeToggle" type="button">Lys modus</button>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Simen</span> Fredheim Aronsen</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="current"><a href="projects.html">Projects</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <site-header current-page="projects"></site-header>
 
-    <div class="container">
+    <main class="container">
         <h1>My Projects</h1>
 
         <div class="projects-grid">
             <div class="project">
-            <img src="images/NeuroNetClassifier.png" alt="" width="100" height="100" class="profile-image">
+            <img src="images/NeuroNetClassifier.png" alt="NeuroNetClassifier architecture and results" width="100" height="100" class="profile-image" loading="lazy">
             <h3><a href="https://github.com/SimenA89/NeuroNetClassifier" target="_blank">NeuroNetClassifier - Deep Learning Image Classifier</a></h3>
             <p>A deep learning model for image classification using convolutional neural networks. Implemented with TensorFlow and Keras, achieving high accuracy on various datasets.</p>
             <div class="project-tags">
@@ -36,7 +29,7 @@
         </div>
 
             <div class="project">
-            <img src="images/filmanbefaling.png" alt="" width="100" height="100" class="profile-image">
+            <img src="images/filmanbefaling.png" alt="Film recommendation system interface" width="100" height="100" class="profile-image" loading="lazy">
             <h3><a href="https://github.com/SimenA89/film-anbefalingssystem" target="_blank">Film-anbefalingssystem</a></h3>
             <p>🎬 Intelligent film-anbefalingssystem som kombinerer BERT-basert innholdsfiltrering med kollaborativ filtrering (SVD) for å gi personlige film-anbefalinger. Bygget med Python, Streamlit, PyTorch og Transformers. Bruker MovieLens 32M datasett og TMDB API for filmplakater.</p>
             <div class="project-tags">
@@ -50,7 +43,7 @@
         </div>
 
             <div class="project">
-            <img src="images/todo3.png" alt="" width="100" height="100" class="profile-image">
+            <img src="images/todo3.png" alt="Django Todo App interface screenshot" width="100" height="100" class="profile-image" loading="lazy">
             <h3><a href="https://github.com/SimenA89/01-todo" target="_blank">Todo App</a></h3>
             <p>En Django-basert TODO-applikasjon med full CRUD-funksjonalitet. Lar brukere opprette, redigere, slette og markere TODOs som løst. Inkluderer forfallsdatoer, visning av forfalte oppgaver, og moderne responsiv UI med Bootstrap. Komplett med tester og admin-interface.</p>
             <div class="project-tags">
@@ -62,7 +55,7 @@
         </div>
 
             <div class="project">
-            <img src="images/Melspectrogram.png" alt="" width="100" height="100" class="profile-image">
+            <img src="images/Melspectrogram.png" alt="Mel-spectrogram showing audio features" width="100" height="100" class="profile-image" loading="lazy">
             <h3><a href="https://github.com/SimenA89/Music-Genre-Classification-using-ML" target="_blank">Music Genre Classification using ML</a></h3>
             <p>A machine learning model that classifies music into genres based on audio features. Implemented using Python, scikit-learn, and librosa for audio processing.</p>
             <div class="project-tags">
@@ -78,7 +71,7 @@
         </div>
 
             <div class="project">
-            <img src="images/SentimentNewsAnalyzer.png" alt="" width="100" height="100" class="profile-image">
+            <img src="images/SentimentNewsAnalyzer.png" alt="Sentiment analysis dashboard in Neo4j" width="100" height="100" class="profile-image" loading="lazy">
             <h3><a href="https://github.com/SimenA89/SentimentNewsAnalyzer" target="_blank">SentimentNewsAnalyzer</a></h3>
             <p>This Project is aimed at analyzing sentiment in news articles and measuring the performance of the models used to get this insight.</p>
             <div class="project-tags">
@@ -91,7 +84,7 @@
     
 
             <div class="project">
-            <img src="images/ToDo2.png" alt="" width="100" height="100" class="profile-image">
+            <img src="images/ToDo2.png" alt=".NET ToDo application screenshot" width="100" height="100" class="profile-image" loading="lazy">
             <h3><a href="https://github.com/SimenA89/.NET-toDo-App" target="_blank">.NET ToDo App</a></h3>
             <p>A feature-rich ToDo application developed using .NET Core and Entity Framework. Includes user authentication, task prioritization, and reminders.</p>
             <div class="project-tags">
@@ -104,7 +97,7 @@
 
         
             <div class="project">
-            <img src="images/DataTrendz.jpg" alt="" width="100" height="100" class="profile-image">
+            <img src="images/DataTrendz.jpg" alt="DataTrendz Tableau and PowerBI dashboard" width="100" height="100" class="profile-image" loading="lazy">
             <h3><a href="https://github.com/SimenA89/DataTrendz" target="_blank">DataTrendz</a></h3>
             <p>A dual-focus analytics tool merging football analytics and Amazon bestseller trends via Tableau and Power BI. It enhances decision-making in sports and publishing with interactive data visualizations.</p>
             <div class="project-tags">
@@ -118,7 +111,7 @@
         
 
             <div class="project">
-            <img src="images/Student_Performance_Insights_Dashboard.png" alt="" width="100" height="100" class="profile-image">
+            <img src="images/Student_Performance_Insights_Dashboard.png" alt="Student Performance Insights dynamic dashboard in Python" width="100" height="100" class="profile-image" loading="lazy">
             <h3><a href="https://github.com/SimenA89/Student-Performance-Insights-Dashboard" target="_blank">Student Performance Insights Dashboard</a></h3>
             <p>An interactive dashboard that visualizes student performance data, helping educators identify trends and areas for improvement. Built using Python, Dash, and Plotly.</p>
             <div class="project-tags">
@@ -130,56 +123,8 @@
         </div>
 
         </div>
-    </div>
+    </main>
 
-    <footer>
-        <p>&copy; 2026 Simen Fredheim Aronsen | AI Developer Portfolio</p>
-    </footer>
-
-    <script>
-        // Theme toggle (dark/light) + lagrer valg i localStorage
-        (function () {
-            const STORAGE_KEY = 'theme';
-            const body = document.body;
-            const saved = localStorage.getItem(STORAGE_KEY);
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initialTheme = saved || (prefersDark ? 'dark' : 'light');
-
-            body.setAttribute('data-theme', initialTheme);
-
-            const btn = document.getElementById('themeToggle');
-            if (!btn) return;
-
-            const syncButton = () => {
-                const t = body.getAttribute('data-theme') || 'light';
-                btn.textContent = (t === 'dark') ? 'Lys modus' : 'Mørk modus';
-                btn.setAttribute('aria-label', (t === 'dark') ? 'Bytt til lys modus' : 'Bytt til mørk modus');
-            };
-
-            syncButton();
-            btn.addEventListener('click', () => {
-                const current = body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-                const next = current === 'dark' ? 'light' : 'dark';
-                body.setAttribute('data-theme', next);
-                localStorage.setItem(STORAGE_KEY, next);
-                syncButton();
-            });
-        })();
-
-        // Add a simple fade-in animation to the projects
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const projects = document.querySelectorAll('.project');
-            projects.forEach((project, index) => {
-                project.style.opacity = '0';
-                project.style.transform = 'translateY(20px)';
-                project.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                
-                setTimeout(() => {
-                    project.style.opacity = '1';
-                    project.style.transform = 'translateY(0)';
-                }, 200 * index);
-            });
-        });
-    </script>
+    <site-footer></site-footer>
 </body>
 </html>
