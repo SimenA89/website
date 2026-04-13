@@ -24,4 +24,4 @@ Alle viktige endringer i prosjektet vil bli dokumentert i denne filen.
 - **Kode-opprydding:** Fjernet alle gjenværende inline `<style>`-tags i HTML-filene og samlet all CSS i styles.css for et ryddigere oppsett.
 
 ---
-*Denne loggen kan du fortsette å skrive i for fremtidige endringer.*
+
